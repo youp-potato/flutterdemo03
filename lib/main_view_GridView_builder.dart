@@ -58,16 +58,16 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      padding: const EdgeInsets.all(10),
-      itemCount: listData.length,
-      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-        //SliverGridDelegateWithFixedCrossAxisCount实现的是GridView.count的功能
-        crossAxisSpacing: 10, //水平子Widget之间 间距
-        mainAxisSpacing: 10, //垂直子Widget之间 间距
-        childAspectRatio: 0.9, //宽高比
-        maxCrossAxisExtent: 200,  //通过它可以快速创建横轴子元素为固定最大长度的GridView
-      ),
-      itemBuilder: _initListData
+        padding: const EdgeInsets.all(10),
+        itemCount: listData.length,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          //SliverGridDelegateWithFixedCrossAxisCount实现的是GridView.count的功能
+          crossAxisSpacing: 10, //水平子Widget之间 间距
+          mainAxisSpacing: 10, //垂直子Widget之间 间距
+          crossAxisCount: 2, //一行显示多少个元素
+          childAspectRatio: 0.9, //宽高比
+        ),
+        itemBuilder: _initListData
     );
   }
 }
